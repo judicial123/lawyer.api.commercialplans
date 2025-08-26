@@ -4,7 +4,7 @@ using lawyer.api.commercialplans.datastore.mssql.Model.Common;
 
 namespace lawyer.api.commercialplans.datastore.mssql.Model;
 
-[Table("Countries", Schema = "shared")]
+[Table("Countries", Schema = "commercialplans")]
 public class CountryEntity : EFEntity
 {
     [DatabaseGenerated(DatabaseGeneratedOption.None)]

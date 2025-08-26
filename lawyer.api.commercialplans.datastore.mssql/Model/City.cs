@@ -3,7 +3,7 @@ using lawyer.api.commercialplans.datastore.mssql.Model.Common;
 
 namespace lawyer.api.commercialplans.datastore.mssql.Model;
 
-[Table("Cities", Schema = "shared")]
+[Table("Cities", Schema = "commercialplans")]
 public class CityEntity : EFEntity
 {
     public Guid IdCountry { get; set; }
