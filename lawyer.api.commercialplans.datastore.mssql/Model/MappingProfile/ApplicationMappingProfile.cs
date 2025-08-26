@@ -11,5 +11,6 @@ public class ApplicationMappingProfile : Profile
         CreateMap<Example, ExampleEntity>().ReverseMap();
         CreateMap<City, CityEntity>().ReverseMap();
         CreateMap<Country, CountryEntity>().ReverseMap();
+        CreateMap<LegalTechPlan, LegalTechPlanEntity>().ReverseMap();
     }
 }
