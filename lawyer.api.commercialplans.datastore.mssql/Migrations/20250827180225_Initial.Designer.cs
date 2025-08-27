@@ -12,7 +12,7 @@ using lawyer.api.commercialplans.datastore.mssql.DatabaseContext;
 namespace lawyer.api.commercialplans.datastore.mssql.Migrations
 {
     [DbContext(typeof(LawyersContext))]
-    [Migration("20250827174218_Initial")]
+    [Migration("20250827180225_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -48,6 +48,38 @@ namespace lawyer.api.commercialplans.datastore.mssql.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Examples", "commercialplans");
+                });
+
+            modelBuilder.Entity("lawyer.api.commercialplans.datastore.mssql.Model.LegalTechPlanEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("IdLawFirm")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Used")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LegalTechPlans", "commercialplans");
                 });
 
             modelBuilder.Entity("lawyer.api.commercialplans.datastore.mssql.Model.MarketingPlanEntity", b =>

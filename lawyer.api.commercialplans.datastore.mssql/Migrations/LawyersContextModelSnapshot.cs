@@ -47,6 +47,38 @@ namespace lawyer.api.commercialplans.datastore.mssql.Migrations
                     b.ToTable("Examples", "commercialplans");
                 });
 
+            modelBuilder.Entity("lawyer.api.commercialplans.datastore.mssql.Model.LegalTechPlanEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateModified")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("IdLawFirm")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Used")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("LegalTechPlans", "commercialplans");
+                });
+
             modelBuilder.Entity("lawyer.api.commercialplans.datastore.mssql.Model.MarketingPlanEntity", b =>
                 {
                     b.Property<Guid>("Id")

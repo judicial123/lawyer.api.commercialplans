@@ -31,6 +31,25 @@ namespace lawyer.api.commercialplans.datastore.mssql.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "LegalTechPlans",
+                schema: "commercialplans",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdLawFirm = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Used = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DateModified = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LegalTechPlans", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "MarketingPlans",
                 schema: "commercialplans",
                 columns: table => new
@@ -55,6 +74,10 @@ namespace lawyer.api.commercialplans.datastore.mssql.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Examples",
+                schema: "commercialplans");
+
+            migrationBuilder.DropTable(
+                name: "LegalTechPlans",
                 schema: "commercialplans");
 
             migrationBuilder.DropTable(

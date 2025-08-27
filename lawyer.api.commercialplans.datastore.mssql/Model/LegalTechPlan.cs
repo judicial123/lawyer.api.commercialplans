@@ -10,5 +10,6 @@ public class LegalTechPlanEntity : EFEntity
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
     public int Used { get; set; }
+    [Column(TypeName = "decimal(18,2)")]
     public decimal Price { get; set; }
 }

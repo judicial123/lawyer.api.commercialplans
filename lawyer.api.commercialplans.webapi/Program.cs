@@ -22,9 +22,9 @@ builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "Lawyer API",
+        Title = "Lawyer Commercial Plans API",
         Version = "v1",
-        Description = "API for managing Lawyer operations."
+        Description = "API for managing Commercial Plans operations."
     });
 
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
