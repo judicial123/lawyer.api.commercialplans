@@ -11,23 +11,11 @@ public class LawyersContext : DbContext
     }
 
     public DbSet<ExampleEntity> Examples { get; set; }
-    public DbSet<CityEntity> Cities { get; set; }
-    public DbSet<CountryEntity> Countries { get; set; }
     public DbSet<MarketingPlanEntity> MarketingPlans { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(LawyersContext).Assembly);
-        
-        modelBuilder.Entity<CityEntity>()
-            .HasOne(c => c.Country)
-            .WithMany(country => country.Cities)
-            .HasForeignKey(c => c.IdCountry);
-        
-        modelBuilder.Entity<CountryEntity>()
-            .HasMany(c => c.Cities)
-            .WithOne(c => c.Country)
-            .HasForeignKey(c => c.IdCountry);
 
         base.OnModelCreating(modelBuilder);
     }
