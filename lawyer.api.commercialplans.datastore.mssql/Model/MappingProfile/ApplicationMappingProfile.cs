@@ -9,8 +9,7 @@ public class ApplicationMappingProfile : Profile
     public ApplicationMappingProfile()
     {
         CreateMap<Example, ExampleEntity>().ReverseMap();
-        CreateMap<City, CityEntity>().ReverseMap();
-        CreateMap<Country, CountryEntity>().ReverseMap();
         CreateMap<LegalTechPlan, LegalTechPlanEntity>().ReverseMap();
+        CreateMap<MarketingPlan, MarketingPlanEntity>().ReverseMap();
     }
 }
