@@ -10,5 +10,6 @@ public class MarketingPlanEntity : EFEntity
     public DateTime EntryDate { get; set; }
     public int ContactsNumber { get; set; }
     public int ContactsUsed { get; set; }
+    [Column(TypeName = "decimal(18,2)")]
     public decimal Price { get; set; }
 }

@@ -12,26 +12,11 @@ namespace lawyer.api.commercialplans.datastore.mssql.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.EnsureSchema(
-                name: "shared");
-
-            migrationBuilder.CreateTable(
-                name: "Countries",
-                schema: "shared",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DateModified = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Countries", x => x.Id);
-                });
+                name: "commercialplans");
 
             migrationBuilder.CreateTable(
                 name: "Examples",
-                schema: "shared",
+                schema: "commercialplans",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -46,49 +31,35 @@ namespace lawyer.api.commercialplans.datastore.mssql.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Cities",
-                schema: "shared",
+                name: "MarketingPlans",
+                schema: "commercialplans",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    IdCountry = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IdLawFirm = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    EntryDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ContactsNumber = table.Column<int>(type: "int", nullable: false),
+                    ContactsUsed = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     DateCreated = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DateModified = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Cities", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Cities_Countries_IdCountry",
-                        column: x => x.IdCountry,
-                        principalSchema: "shared",
-                        principalTable: "Countries",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                    table.PrimaryKey("PK_MarketingPlans", x => x.Id);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Cities_IdCountry",
-                schema: "shared",
-                table: "Cities",
-                column: "IdCountry");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Cities",
-                schema: "shared");
-
-            migrationBuilder.DropTable(
                 name: "Examples",
-                schema: "shared");
+                schema: "commercialplans");
 
             migrationBuilder.DropTable(
-                name: "Countries",
-                schema: "shared");
+                name: "MarketingPlans",
+                schema: "commercialplans");
         }
     }
 }
