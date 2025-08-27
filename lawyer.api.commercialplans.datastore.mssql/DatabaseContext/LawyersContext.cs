@@ -11,6 +11,7 @@ public class LawyersContext : DbContext
     }
 
     public DbSet<ExampleEntity> Examples { get; set; }
+    public DbSet<LegalTechPlanEntity> LegalTechPlans { get; set; }
     public DbSet<MarketingPlanEntity> MarketingPlans { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
